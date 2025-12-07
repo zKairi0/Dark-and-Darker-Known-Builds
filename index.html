@@ -31,6 +31,55 @@
   body {
     background-image: radial-gradient(circle at top left, #1a1a1a, #0d0d0d);
   }
+<style>
+  /* Base styling */
+  body {
+    background-color: #0d0d0d;   /* dungeon black */
+    color: #c9b37e;              /* parchment default text */
+    font-family: "Cinzel", serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+  }
+
+  /* Rarity system */
+  .rarity-poor {
+    color: #808080; /* grey */
+  }
+
+  .rarity-common {
+    color: #ffffff; /* white */
+  }
+
+  .rarity-uncommon {
+    color: #00ff00; /* green */
+  }
+
+  .rarity-rare {
+    color: #3399ff; /* blue */
+  }
+
+  .rarity-epic {
+    color: #9933ff; /* purple */
+  }
+
+  .rarity-legendary {
+    color: #ff9900; /* orange */
+  }
+
+  .rarity-unique {
+    color: #fffacd; /* pastel yellow */
+  }
+
+  .rarity-artifact {
+    color: #ff0000; /* red */
+  }
+
+  /* Optional: glowing effect for higher rarities */
+  .rarity-epic, .rarity-legendary, .rarity-unique, .rarity-artifact {
+    text-shadow: 0 0 5px #000000, 0 0 10px currentColor;
+    font-weight: bold;
+  }
 </style>
 </style>
     
@@ -40,6 +89,7 @@
 </body>
 
 </html>
+
 
 
 
