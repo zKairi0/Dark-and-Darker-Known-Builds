@@ -1,6 +1,3 @@
-Here’s your **full Grimoire code** with the corrected class name (Knight → Fighter), the radial gradient background, hover glows in each class’s own color, and the **Bulwark of the Depths** build section fully integrated under Fighter. You can copy‑paste this directly:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +28,7 @@ Here’s your **full Grimoire code** with the corrected class name (Knight → F
       font-style: italic;
       text-shadow: 1px 1px 4px #000000;
       margin-top: 10px;
-      font-family: Georgia, serif; /* readable serif */
+      font-family: Georgia, serif;
     }
 
     /* Tabs container */
@@ -73,7 +70,7 @@ Here’s your **full Grimoire code** with the corrected class name (Knight → F
       display: block;
     }
 
-    /* Accent colors per class (active state) */
+    /* Accent colors per class */
     .tab.fighter.active { color: #C0C0C0; }
     .tab.wizard.active { color: #3399ff; }
     .tab.rogue.active { color: #555555; }
@@ -97,7 +94,17 @@ Here’s your **full Grimoire code** with the corrected class name (Knight → F
     .tab.cleric:hover { text-shadow: 0 0 8px #FFD700; }
     .tab.ranger:hover { text-shadow: 0 0 8px #2e8b57; }
 
-    /* Image styling */
+    /* Archetype styling */
+    .archetype {
+      margin-bottom: 40px;
+      border-top: 1px solid #444;
+      padding-top: 20px;
+    }
+    .archetype h3 {
+      color: #d4af37;
+      text-shadow: 1px 1px 4px #000;
+    }
+
     img {
       border: 2px solid #444;
       padding: 4px;
@@ -126,40 +133,34 @@ Here’s your **full Grimoire code** with the corrected class name (Knight → F
     <div class="tab ranger" onclick="showTab('ranger', this)">Ranger</div>
   </div>
 
-  <!-- Fighter build -->
+  <!-- Fighter archetypes -->
   <div id="fighter" class="tab-content active">
-    <h2>Fighter Build: Bulwark of the Depths</h2>
-    <p>A defensive build focused on survivability and heavy armor, forged for enduring the dungeon’s darkest trials.</p>
+    <h2>Fighter Archetypes</h2>
+    <p>The Fighter’s path is diverse, with many archetypes seen in the depths. Each record below captures a different style of arms and armor.</p>
 
-    <!-- Full in-game screenshot -->
-    <h3>Complete Loadout</h3>
-    <img src="URL_TO_FULL_FIGHTER_SCREENSHOT" alt="Fighter in full Bulwark of the Depths armor" style="width:400px;">
+    <!-- Archetype 1 -->
+    <section class="archetype">
+      <h3>Crystal Sword Fighter</h3>
+      <p>A duelist who wields the crystalline blade, striking with precision and resilience.</p>
+      <img src="URL_TO_CRYSTAL_SWORD_FIGHTER_SCREENSHOT" alt="Crystal Sword Fighter" style="width:400px;">
+      <ul>
+        <li><strong>Primary Weapon:</strong> Crystal Sword<br><img src="URL_TO_CRYSTAL_SWORD_IMAGE" style="width:150px;"></li>
+        <li><strong>Secondary Weapon:</strong> Shield<br><img src="URL_TO_SHIELD_IMAGE" style="width:150px;"></li>
+        <li><strong>Armor:</strong> Plate Set<br><img src="URL_TO_PLATE_ARMOR_IMAGE" style="width:150px;"></li>
+      </ul>
+    </section>
 
-    <!-- Weapons -->
-    <h3>Weapons</h3>
-    <ul>
-      <li><strong>Primary Weapon:</strong> Longsword<br><img src="URL_TO_LONGSWORD_IMAGE" alt="Longsword" style="width:150px;"></li>
-      <li><strong>Primary Weapon 2:</strong> Arming Sword<br><img src="URL_TO_ARMING_SWORD_IMAGE" alt="Arming Sword" style="width:150px;"></li>
-      <li><strong>Secondary Weapon:</strong> Kite Shield<br><img src="URL_TO_SHIELD_IMAGE" alt="Kite Shield" style="width:150px;"></li>
-    </ul>
-
-    <!-- Armor -->
-    <h3>Armor</h3>
-    <ul>
-      <li><strong>Helmet:</strong> Dark Plate Helm<br><img src="URL_TO_HELM_IMAGE" alt="Dark Plate Helm" style="width:150px;"></li>
-      <li><strong>Chest:</strong> Dark Plate Armor<br><img src="URL_TO_CHEST_IMAGE" alt="Dark Plate Armor" style="width:150px;"></li>
-      <li><strong>Legs:</strong> Dark Plate Leggings<br><img src="URL_TO_LEGS_IMAGE" alt="Dark Plate Leggings" style="width:150px;"></li>
-      <li><strong>Hands:</strong> Gauntlets<br><img src="URL_TO_HANDS_IMAGE" alt="Gauntlets" style="width:150px;"></li>
-      <li><strong>Feet:</strong> Dark Plate Boots<br><img src="URL_TO_BOOTS_IMAGE" alt="Dark Plate Boots" style="width:150px;"></li>
-      <li><strong>Cape:</strong> Fighter’s Cloak<br><img src="URL_TO_CAPE_IMAGE" alt="Fighter Cloak" style="width:150px;"></li>
-    </ul>
-
-    <!-- Accessories -->
-    <h3>Accessories</h3>
-    <ul>
-      <li><strong>Rings:</strong> Ring of Protection<br><img src="URL_TO_RING_IMAGE" alt="Ring of Protection" style="width:100px;"></li>
-      <li><strong>Necklace:</strong> Amulet of Valor<br><img src="URL_TO_NECKLACE_IMAGE" alt="Amulet of Valor" style="width:100px;"></li>
-    </ul>
+    <!-- Archetype 2 -->
+    <section class="archetype">
+      <h3>Plate Falchion & Heater Shield Fighter</h3>
+      <p>A stalwart defender clad in heavy plate, balancing offense with the curved falchion and defense with the heater shield.</p>
+      <img src="URL_TO_PLATE_FALCHION_FIGHTER_SCREENSHOT" alt="Plate Falchion Fighter" style="width:400px;">
+      <ul>
+        <li><strong>Primary Weapon:</strong> Plate Falchion<br><img src="URL_TO_FALCHION_IMAGE" style="width:150px;"></li>
+        <li><strong>Secondary Weapon:</strong> Heater Shield<br><img src="URL_TO_HEATER_SHIELD_IMAGE" style="width:150px;"></li>
+        <li><strong>Armor:</strong> Full Plate<br><img src="URL_TO_FULL_PLATE_IMAGE" style="width:150px;"></li>
+      </ul>
+    </section>
   </div>
 
   <!-- Other classes -->
@@ -168,4 +169,14 @@ Here’s your **full Grimoire code** with the corrected class name (Knight → F
     <p>Master of arcane knowledge, weaving spells from ancient texts.</p>
   </div>
 
-  <div id
+  <div id="rogue" class="tab-content">
+    <h2>Rogue</h2>
+    <p>Silent and cunning, striking from the shadows with precision.</p>
+  </div>
+
+  <div id="sorceror" class="tab-content">
+    <h2>Sorceror</h2>
+    <p>Born of magic, channeling raw power without need of study.</p>
+  </div>
+
+  <div
