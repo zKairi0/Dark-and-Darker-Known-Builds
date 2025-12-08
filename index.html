@@ -1,94 +1,17 @@
-<!Dthis is an icon representing html. it has a rectangular tag at the top with "html" written in it. the tag is slightly tilted to the right and is outlined in black. inside the tag, there is a line of text written in a bold, sans-serif font. the overall design is simple and minimalist, conveying the concept of coding or programming. (hed) (hed) JHTML>
-<html>
-<head>
-    <title>Dark and Darker Known Builds</title>
-</head>
-<style>
-  body {
-    background-color: #0d0d0d;   /* deep dungeon black */
-    color: #c9b37e;              /* warm parchment text */
-    font-family: "Cinzel", serif; /* medieval fantasy font */
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-  }
+Perfect — thanks for sending the full code. I’ll integrate the **visual immersion and atmosphere upgrades** directly into it, placing everything in the correct spots. This includes: parchment‑like background, torchlight glow, tinted class sections, medieval fonts, hover effects, and a footer inscription.  
 
-  h1, h2, h3 {
-    color: #f0e6d2;              /* pale torchlight for headings */
-    text-shadow: 2px 2px #000000; /* shadow for depth */
-  }
+Here’s your **clean, copy‑paste ready version**:
 
-  a {
-    color: #a67c52;              /* bronze links */
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #d4af37;              /* gold hover effect */
-  }
-
-  /* Optional: subtle texture effect */
-  body {
-    background-image: radial-gradient(circle at top left, #1a1a1a, #0d0d0d);
-  }
-<style>
-  /* Base styling */
-  body {
-    background-color: #0d0d0d;   /* dungeon black */
-    color: #c9b37e;              /* parchment default text */
-    font-family: "Cinzel", serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-  }
-
-  /* Rarity system */
-  .rarity-poor {
-    color: #808080; /* grey */
-  }
-
-  .rarity-common {
-    color: #ffffff; /* white */
-  }
-
-  .rarity-uncommon {
-    color: #00ff00; /* green */
-  }
-
-  .rarity-rare {
-    color: #3399ff; /* blue */
-  }
-
-  .rarity-epic {
-    color: #9933ff; /* purple */
-  }
-
-  .rarity-legendary {
-    color: #ff9900; /* orange */
-  }
-
-  .rarity-unique {
-    color: #fffacd; /* pastel yellow */
-  }
-
-  .rarity-artifact {
-    color: #ff0000; /* red */
-  }
-
-  /* Optional: glowing effect for higher rarities */
-  .rarity-epic, .rarity-legendary, .rarity-unique, .rarity-artifact {
-    text-shadow: 0 0 5px #000000, 0 0 10px currentColor;
-    font-weight: bold;
-  }
-</style>
-
-</html>
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>The Dark and Darker Grimoire</title>
+
+  <!-- Medieval fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
   <style>
     body {
       background-color: #0d0d0d;
@@ -97,6 +20,16 @@
       line-height: 1.6;
       margin: 0;
       padding: 20px;
+      position: relative;
+    }
+
+    /* Torchlight glow overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(255, 200, 100, 0.15), transparent 70%);
+      pointer-events: none;
     }
 
     h1 {
@@ -104,6 +37,7 @@
       color: #d4af37; /* gold tone */
       text-shadow: 2px 2px 6px #000000;
       margin-bottom: 10px;
+      font-family: 'Cinzel Decorative', serif;
     }
 
     .subtitle {
@@ -112,6 +46,7 @@
       font-style: italic;
       text-shadow: 1px 1px 4px #000000;
       margin-top: 10px;
+      font-family: 'Uncial Antiqua', serif;
     }
 
     /* Tabs container */
@@ -137,6 +72,8 @@
     .tab:hover {
       background-color: #2b2b2b;
       color: #d4af37;
+      text-shadow: 0 0 8px #d4af37;
+      transform: scale(1.05);
     }
 
     .tab.active {
@@ -158,17 +95,37 @@
       display: block;
     }
 
-   /* Accent colors per class */
-.tab.knight.active { color: #C0C0C0; }     /* silver armor */
-.tab.wizard.active { color: #3399ff; }     /* arcane blue */
-.tab.rogue.active { color: #555555; }      /* charcoal grey */
-.tab.sorceror.active { color: #9933ff; }   /* bright violet */
-.tab.warlock.active { color: #4B0082; }    /* deep indigo */
-.tab.druid.active { color: #228b22; }      /* forest green */
-.tab.barbarian.active { color: #b22222; }  /* blood red */
-.tab.bard.active { color: #ff69b4; }       /* lyrical pink */
-.tab.cleric.active { color: #FFD700; }     /* golden yellow */
-.tab.ranger.active { color: #2e8b57; }     /* hunter green */
+    /* Accent colors per class */
+    .tab.knight.active { color: #C0C0C0; }     /* silver armor */
+    .tab.wizard.active { color: #3399ff; }     /* arcane blue */
+    .tab.rogue.active { color: #555555; }      /* charcoal grey */
+    .tab.sorceror.active { color: #9933ff; }   /* bright violet */
+    .tab.warlock.active { color: #4B0082; }    /* deep indigo */
+    .tab.druid.active { color: #228b22; }      /* forest green */
+    .tab.barbarian.active { color: #b22222; }  /* blood red */
+    .tab.bard.active { color: #ff69b4; }       /* lyrical pink */
+    .tab.cleric.active { color: #FFD700; }     /* golden yellow */
+    .tab.ranger.active { color: #2e8b57; }     /* hunter green */
+
+    /* Tinted backgrounds per class section */
+    #knight.tab-content.active { background-color: rgba(192,192,192,0.05); }
+    #wizard.tab-content.active { background-color: rgba(51,153,255,0.05); }
+    #rogue.tab-content.active { background-color: rgba(85,85,85,0.05); }
+    #sorceror.tab-content.active { background-color: rgba(153,51,255,0.05); }
+    #warlock.tab-content.active { background-color: rgba(75,0,130,0.05); }
+    #druid.tab-content.active { background-color: rgba(34,139,34,0.05); }
+    #barbarian.tab-content.active { background-color: rgba(178,34,34,0.05); }
+    #bard.tab-content.active { background-color: rgba(255,105,180,0.05); }
+    #cleric.tab-content.active { background-color: rgba(255,215,0,0.05); }
+    #ranger.tab-content.active { background-color: rgba(46,139,87,0.05); }
+
+    /* Footer inscription */
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      color: #c9b37e;
+    }
   </style>
 </head>
 <body>
@@ -176,7 +133,7 @@
   <h1>The Dark and Darker Grimoire</h1>
   <p class="subtitle">
     Here rests the Grimoire, a testament to those who endured the endless dark and lived to recount it.  
-    Beyond the beasts and shadows, these pages preserve the legends unearthed within the dungeons detailing the arms, armor, and skills witnessed in the hands of survivors and champions alike.
+    Beyond the beasts and shadows, these pages preserve the legends unearthed within the dungeons — detailing the arms, armor, and skills witnessed in the hands of survivors and champions alike.
   </p>
 
   <div class="tabs">
@@ -242,32 +199,8 @@
     <p>Sharp-eyed hunter, striking true from afar and guiding allies through the wilds.</p>
   </div>
 
-  <script>
-    function showTab(tabId) {
-      // Hide all tab contents
-      var contents = document.querySelectorAll('.tab-content');
-      contents.forEach(function(content) {
-        content.classList.remove('active');
-      });
-
-      // Remove active class from all tabs
-      var tabs = document.querySelectorAll('.tab');
-      tabs.forEach(function(tab) {
-        tab.classList.remove('active');
-      });
-
-      // Show selected tab content
-      document.getElementById(tabId).classList.add('active');
-
-      // Highlight selected tab
-      event.target.classList.add('active');
-    }
-  </script>
-
-</body>
-</html>
-
-
+  <footer>
+    Thus ends the scribe
 
 
 
