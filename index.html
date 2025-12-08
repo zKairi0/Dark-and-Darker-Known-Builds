@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>The Dark and Darker Grimoire</title>
 
-  <!-- Medieval fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-
   <style>
     body {
       background-color: #0d0d0d;
@@ -16,15 +13,6 @@
       margin: 0;
       padding: 20px;
       position: relative;
-    }
-
-    /* Torchlight glow overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 30% 40%, rgba(255, 200, 100, 0.15), transparent 70%);
-      pointer-events: none;
     }
 
     h1 {
@@ -41,7 +29,7 @@
       font-style: italic;
       text-shadow: 1px 1px 4px #000000;
       margin-top: 10px;
-      font-family: 'Uncial Antiqua', serif;
+      font-family: Georgia, serif; /* switched to readable serif */
     }
 
     /* Tabs container */
@@ -66,8 +54,6 @@
 
     .tab:hover {
       background-color: #2b2b2b;
-      color: #d4af37;
-      text-shadow: 0 0 8px #d4af37;
       transform: scale(1.05);
     }
 
@@ -101,26 +87,6 @@
     .tab.bard.active { color: #ff69b4; }       /* lyrical pink */
     .tab.cleric.active { color: #FFD700; }     /* golden yellow */
     .tab.ranger.active { color: #2e8b57; }     /* hunter green */
-
-    /* Tinted backgrounds per class section */
-    #knight.tab-content.active { background-color: rgba(192,192,192,0.05); }
-    #wizard.tab-content.active { background-color: rgba(51,153,255,0.05); }
-    #rogue.tab-content.active { background-color: rgba(85,85,85,0.05); }
-    #sorceror.tab-content.active { background-color: rgba(153,51,255,0.05); }
-    #warlock.tab-content.active { background-color: rgba(75,0,130,0.05); }
-    #druid.tab-content.active { background-color: rgba(34,139,34,0.05); }
-    #barbarian.tab-content.active { background-color: rgba(178,34,34,0.05); }
-    #bard.tab-content.active { background-color: rgba(255,105,180,0.05); }
-    #cleric.tab-content.active { background-color: rgba(255,215,0,0.05); }
-    #ranger.tab-content.active { background-color: rgba(46,139,87,0.05); }
-
-    /* Footer inscription */
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-style: italic;
-      color: #c9b37e;
-    }
   </style>
 </head>
 <body>
@@ -132,16 +98,16 @@
   </p>
 
   <div class="tabs">
-    <div class="tab knight active" onclick="showTab('knight')">Knight</div>
-    <div class="tab wizard" onclick="showTab('wizard')">Wizard</div>
-    <div class="tab rogue" onclick="showTab('rogue')">Rogue</div>
-    <div class="tab sorceror" onclick="showTab('sorceror')">Sorceror</div>
-    <div class="tab warlock" onclick="showTab('warlock')">Warlock</div>
-    <div class="tab druid" onclick="showTab('druid')">Druid</div>
-    <div class="tab barbarian" onclick="showTab('barbarian')">Barbarian</div>
-    <div class="tab bard" onclick="showTab('bard')">Bard</div>
-    <div class="tab cleric" onclick="showTab('cleric')">Cleric</div>
-    <div class="tab ranger" onclick="showTab('ranger')">Ranger</div>
+    <div class="tab knight active" onclick="showTab('knight', this)">Knight</div>
+    <div class="tab wizard" onclick="showTab('wizard', this)">Wizard</div>
+    <div class="tab rogue" onclick="showTab('rogue', this)">Rogue</div>
+    <div class="tab sorceror" onclick="showTab('sorceror', this)">Sorceror</div>
+    <div class="tab warlock" onclick="showTab('warlock', this)">Warlock</div>
+    <div class="tab druid" onclick="showTab('druid', this)">Druid</div>
+    <div class="tab barbarian" onclick="showTab('barbarian', this)">Barbarian</div>
+    <div class="tab bard" onclick="showTab('bard', this)">Bard</div>
+    <div class="tab cleric" onclick="showTab('cleric', this)">Cleric</div>
+    <div class="tab ranger" onclick="showTab('ranger', this)">Ranger</div>
   </div>
 
   <div id="knight" class="tab-content active">
@@ -194,11 +160,30 @@
     <p>Sharp-eyed hunter, striking true from afar and guiding allies through the wilds.</p>
   </div>
 
-  <footer>
-    Thus ends the scribe
+  <script>
+    function showTab(tabId, element) {
+      // Hide all tab contents
+      var contents = document.querySelectorAll('.tab-content');
+      contents.forEach(function(content) {
+        content.classList.remove('active');
+      });
 
+      // Remove active class from all tabs
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+      });
 
+      // Show selected tab content
+      document.getElementById(tabId).classList.add('active');
 
+      // Highlight selected tab
+      element.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
 
 
 
