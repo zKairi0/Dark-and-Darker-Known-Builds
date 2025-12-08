@@ -6,13 +6,14 @@
 
   <style>
     body {
-  background: linear-gradient(135deg, #1a1a1a, #0d0d0d); /* subtle grey top-left to dark bottom-right */
-  color: #c9b37e;
-  font-family: "Cinzel", serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 20px;
-}
+      background: linear-gradient(135deg, #1a1a1a, #0d0d0d); /* subtle grey top-left to dark bottom-right */
+      color: #c9b37e;
+      font-family: "Cinzel", serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
     h1 {
       font-size: 2.5em;
       color: #d4af37; /* gold tone */
@@ -70,7 +71,7 @@
     }
 
     /* Accent colors per class (active state) */
-    .tab.knight.active { color: #C0C0C0; }
+    .tab.fighter.active { color: #C0C0C0; }
     .tab.wizard.active { color: #3399ff; }
     .tab.rogue.active { color: #555555; }
     .tab.sorceror.active { color: #9933ff; }
@@ -82,7 +83,7 @@
     .tab.ranger.active { color: #2e8b57; }
 
     /* Glow on hover with respective colors */
-    .tab.knight:hover { text-shadow: 0 0 8px #C0C0C0; }
+    .tab.fighter:hover { text-shadow: 0 0 8px #C0C0C0; }
     .tab.wizard:hover { text-shadow: 0 0 8px #3399ff; }
     .tab.rogue:hover { text-shadow: 0 0 8px #555555; }
     .tab.sorceror:hover { text-shadow: 0 0 8px #9933ff; }
@@ -92,6 +93,13 @@
     .tab.bard:hover { text-shadow: 0 0 8px #ff69b4; }
     .tab.cleric:hover { text-shadow: 0 0 8px #FFD700; }
     .tab.ranger:hover { text-shadow: 0 0 8px #2e8b57; }
+
+    /* Image styling */
+    img {
+      border: 2px solid #444;
+      padding: 4px;
+      background-color: #0d0d0d;
+    }
   </style>
 </head>
 <body>
@@ -103,7 +111,7 @@
   </p>
 
   <div class="tabs">
-    <div class="tab knight active" onclick="showTab('knight', this)">Knight</div>
+    <div class="tab fighter active" onclick="showTab('fighter', this)">Fighter</div>
     <div class="tab wizard" onclick="showTab('wizard', this)">Wizard</div>
     <div class="tab rogue" onclick="showTab('rogue', this)">Rogue</div>
     <div class="tab sorceror" onclick="showTab('sorceror', this)">Sorceror</div>
@@ -115,78 +123,46 @@
     <div class="tab ranger" onclick="showTab('ranger', this)">Ranger</div>
   </div>
 
-  <div id="knight" class="tab-content active">
-    <h2>Knight</h2>
-    <p>The stalwart defender, clad in steel and sworn to protect.</p>
+  <!-- Fighter build -->
+  <div id="fighter" class="tab-content active">
+    <h2>Fighter Build: Bulwark of the Depths</h2>
+    <p>A defensive build focused on survivability and heavy armor, forged for enduring the dungeon’s darkest trials.</p>
+
+    <!-- Full in-game screenshot -->
+    <h3>Complete Loadout</h3>
+    <img src="URL_TO_FULL_FIGHTER_SCREENSHOT" alt="Fighter in full Bulwark of the Depths armor" style="width:400px;">
+
+    <!-- Weapons -->
+    <h3>Weapons</h3>
+    <ul>
+      <li><strong>Primary Weapon:</strong> Longsword<br><img src="URL_TO_LONGSWORD_IMAGE" alt="Longsword" style="width:150px;"></li>
+      <li><strong>Primary Weapon 2:</strong> Arming Sword<br><img src="URL_TO_ARMING_SWORD_IMAGE" alt="Arming Sword" style="width:150px;"></li>
+      <li><strong>Secondary Weapon:</strong> Kite Shield<br><img src="URL_TO_SHIELD_IMAGE" alt="Kite Shield" style="width:150px;"></li>
+    </ul>
+
+    <!-- Armor -->
+    <h3>Armor</h3>
+    <ul>
+      <li><strong>Helmet:</strong> Dark Plate Helm<br><img src="URL_TO_HELM_IMAGE" alt="Dark Plate Helm" style="width:150px;"></li>
+      <li><strong>Chest:</strong> Dark Plate Armor<br><img src="URL_TO_CHEST_IMAGE" alt="Dark Plate Armor" style="width:150px;"></li>
+      <li><strong>Legs:</strong> Dark Plate Leggings<br><img src="URL_TO_LEGS_IMAGE" alt="Dark Plate Leggings" style="width:150px;"></li>
+      <li><strong>Hands:</strong> Gauntlets<br><img src="URL_TO_HANDS_IMAGE" alt="Gauntlets" style="width:150px;"></li>
+      <li><strong>Feet:</strong> Dark Plate Boots<br><img src="URL_TO_BOOTS_IMAGE" alt="Dark Plate Boots" style="width:150px;"></li>
+      <li><strong>Cape:</strong> Fighter’s Cloak<br><img src="URL_TO_CAPE_IMAGE" alt="Fighter Cloak" style="width:150px;"></li>
+    </ul>
+
+    <!-- Accessories -->
+    <h3>Accessories</h3>
+    <ul>
+      <li><strong>Rings:</strong> Ring of Protection<br><img src="URL_TO_RING_IMAGE" alt="Ring of Protection" style="width:100px;"></li>
+      <li><strong>Necklace:</strong> Amulet of Valor<br><img src="URL_TO_NECKLACE_IMAGE" alt="Amulet of Valor" style="width:100px;"></li>
+    </ul>
   </div>
 
+  <!-- Other classes -->
   <div id="wizard" class="tab-content">
     <h2>Wizard</h2>
     <p>Master of arcane knowledge, weaving spells from ancient texts.</p>
   </div>
 
-  <div id="rogue" class="tab-content">
-    <h2>Rogue</h2>
-    <p>Silent and cunning, striking from the shadows with precision.</p>
-  </div>
-
-  <div id="sorceror" class="tab-content">
-    <h2>Sorceror</h2>
-    <p>Born of magic, channeling raw power without need of study.</p>
-  </div>
-
-  <div id="warlock" class="tab-content">
-    <h2>Warlock</h2>
-    <p>Bound to forbidden pacts, wielding powers of the void.</p>
-  </div>
-
-  <div id="druid" class="tab-content">
-    <h2>Druid</h2>
-    <p>Keeper of nature’s secrets, calling beasts and roots to aid.</p>
-  </div>
-
-  <div id="barbarian" class="tab-content">
-    <h2>Barbarian</h2>
-    <p>Fury incarnate, thriving in battle with unmatched strength.</p>
-  </div>
-
-  <div id="bard" class="tab-content">
-    <h2>Bard</h2>
-    <p>Voice of inspiration, weaving songs that bolster allies.</p>
-  </div>
-
-  <div id="cleric" class="tab-content">
-    <h2>Cleric</h2>
-    <p>Faithful healer, channeling divine light against the darkness.</p>
-  </div>
-
-  <div id="ranger" class="tab-content">
-    <h2>Ranger</h2>
-    <p>Sharp-eyed hunter, striking true from afar and guiding allies through the wilds.</p>
-  </div>
-
-  <script>
-    function showTab(tabId, element) {
-      // Hide all tab contents
-      var contents = document.querySelectorAll('.tab-content');
-      contents.forEach(function(content) {
-        content.classList.remove('active');
-      });
-
-      // Remove active class from all tabs
-      var tabs = document.querySelectorAll('.tab');
-      tabs.forEach(function(tab) {
-        tab.classList.remove('active');
-      });
-
-      // Show selected tab content
-      document.getElementById(tabId).classList.add('active');
-
-      // Highlight selected tab
-      element.classList.add('active');
-    }
-  </script>
-
-</body>
-</html>
-
+  <div id
