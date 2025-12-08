@@ -107,6 +107,189 @@
 
 </html>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Dark and Darker Grimoire</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #c9b37e;
+      font-family: "Cinzel", serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #d4af37; /* gold tone */
+      text-shadow: 2px 2px 6px #000000;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.5em;
+      color: #f0e6d2; /* parchment tone */
+      font-style: italic;
+      text-shadow: 1px 1px 4px #000000;
+      margin-top: 10px;
+    }
+
+    /* Tabs container */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #444;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #1a1a1a;
+      color: #f0e6d2;
+      border: 1px solid #444;
+      border-bottom: none;
+      margin-right: 5px;
+      font-family: "Cinzel", serif;
+      transition: 0.3s;
+    }
+
+    .tab:hover {
+      background-color: #2b2b2b;
+      color: #d4af37;
+    }
+
+    .tab.active {
+      background-color: #0d0d0d;
+      font-weight: bold;
+    }
+
+    /* Tab content */
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border: 1px solid #444;
+      background-color: #121212;
+      color: #c9b37e;
+      font-family: Georgia, serif;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Accent colors per class */
+    .tab.knight.active { color: #b0c4de; }      /* steel blue */
+    .tab.wizard.active { color: #3399ff; }      /* arcane blue */
+    .tab.rogue.active { color: #9acd32; }       /* shadowy green */
+    .tab.sorceror.active { color: #9933ff; }    /* raw purple */
+    .tab.warlock.active { color: #800080; }     /* void violet */
+    .tab.druid.active { color: #228b22; }       /* forest green */
+    .tab.barbarian.active { color: #b22222; }   /* blood red */
+    .tab.bard.active { color: #ff69b4; }        /* lyrical pink */
+    .tab.cleric.active { color: #f0e68c; }      /* divine khaki */
+    .tab.ranger.active { color: #2e8b57; }      /* hunter green */
+  </style>
+</head>
+<body>
+
+  <h1>The Dark and Darker Grimoire</h1>
+  <p class="subtitle">
+    Here rests the Grimoire, a testament to those who endured the endless dark and lived to recount it.  
+    Beyond the beasts and shadows, these pages preserve the legends unearthed within the dungeons — detailing the arms, armor, and arcane skills witnessed in the hands of survivors and champions alike.
+  </p>
+
+  <div class="tabs">
+    <div class="tab knight active" onclick="showTab('knight')">Knight</div>
+    <div class="tab wizard" onclick="showTab('wizard')">Wizard</div>
+    <div class="tab rogue" onclick="showTab('rogue')">Rogue</div>
+    <div class="tab sorceror" onclick="showTab('sorceror')">Sorceror</div>
+    <div class="tab warlock" onclick="showTab('warlock')">Warlock</div>
+    <div class="tab druid" onclick="showTab('druid')">Druid</div>
+    <div class="tab barbarian" onclick="showTab('barbarian')">Barbarian</div>
+    <div class="tab bard" onclick="showTab('bard')">Bard</div>
+    <div class="tab cleric" onclick="showTab('cleric')">Cleric</div>
+    <div class="tab ranger" onclick="showTab('ranger')">Ranger</div>
+  </div>
+
+  <div id="knight" class="tab-content active">
+    <h2>Knight</h2>
+    <p>The stalwart defender, clad in steel and sworn to protect.</p>
+  </div>
+
+  <div id="wizard" class="tab-content">
+    <h2>Wizard</h2>
+    <p>Master of arcane knowledge, weaving spells from ancient texts.</p>
+  </div>
+
+  <div id="rogue" class="tab-content">
+    <h2>Rogue</h2>
+    <p>Silent and cunning, striking from the shadows with precision.</p>
+  </div>
+
+  <div id="sorceror" class="tab-content">
+    <h2>Sorceror</h2>
+    <p>Born of magic, channeling raw power without need of study.</p>
+  </div>
+
+  <div id="warlock" class="tab-content">
+    <h2>Warlock</h2>
+    <p>Bound to forbidden pacts, wielding powers of the void.</p>
+  </div>
+
+  <div id="druid" class="tab-content">
+    <h2>Druid</h2>
+    <p>Keeper of nature’s secrets, calling beasts and roots to aid.</p>
+  </div>
+
+  <div id="barbarian" class="tab-content">
+    <h2>Barbarian</h2>
+    <p>Fury incarnate, thriving in battle with unmatched strength.</p>
+  </div>
+
+  <div id="bard" class="tab-content">
+    <h2>Bard</h2>
+    <p>Voice of inspiration, weaving songs that bolster allies.</p>
+  </div>
+
+  <div id="cleric" class="tab-content">
+    <h2>Cleric</h2>
+    <p>Faithful healer, channeling divine light against the darkness.</p>
+  </div>
+
+  <div id="ranger" class="tab-content">
+    <h2>Ranger</h2>
+    <p>Sharp-eyed hunter, striking true from afar and guiding allies through the wilds.</p>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      // Hide all tab contents
+      var contents = document.querySelectorAll('.tab-content');
+      contents.forEach(function(content) {
+        content.classList.remove('active');
+      });
+
+      // Remove active class from all tabs
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+
+      // Show selected tab content
+      document.getElementById(tabId).classList.add('active');
+
+      // Highlight selected tab
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
+
 
 
 
