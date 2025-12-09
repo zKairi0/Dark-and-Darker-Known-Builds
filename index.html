@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>The Dark and Darker Grimoire</title>
-
   <style>
     body {
       background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
@@ -165,20 +164,28 @@
     <div class="panel">
       <p>A duelist who wields the crystalline blade, striking with precision and resilience.</p>
       <img src="URL_TO_CRYSTAL_SWORD_FIGHTER_SCREENSHOT" alt="Crystal Sword Fighter" style="width:400px;">
-      <ul>
-        <li><strong>Primary Weapon:</strong> Crystal Sword<br><img src="URL_TO_CRYSTAL_SWORD_IMAGE" style="width:150px;"></li>
-        <li><strong>Secondary Weapon:</strong> Shield<br><img src="URL_TO_SHIELD_IMAGE" style="width:150px;"></li>
-        <li><strong>Armor:</strong> Plate Set<br><img src="URL_TO_PLATE_ARMOR_IMAGE" style="width:150px;"></li>
-      </ul>
     </div>
 
     <button class="accordion">Plate Falchion & Heater Shield Fighter</button>
     <div class="panel">
       <p>A stalwart defender clad in heavy plate, balancing offense with the curved falchion and defense with the heater shield.</p>
       <img src="URL_TO_PLATE_FALCHION_FIGHTER_SCREENSHOT" alt="Plate Falchion Fighter" style="width:400px;">
-      <ul>
-        <li><strong>Primary Weapon:</strong> Plate Falchion<br><img src="URL_TO_FALCHION_IMAGE" style="width:150px;"></li>
-        <li><strong>Secondary Weapon:</strong
+    </div>
+  </div>
+
+  <!-- Other classes -->
+  <div id="wizard" class="tab-content">
+    <h2>Wizard</h2>
+    <p>Master of arcane knowledge, weaving spells from ancient texts.</p>
+  </div>
+
+  <div id="rogue" class="tab-content">
+    <h2>Rogue</h2>
+    <p>Silent and cunning, striking from the shadows with precision.</p>
+  </div>
+
+  <!-- Add other class contents here -->
+
   <script>
     // Tab switching
     function showTab(tabId, element) {
@@ -189,50 +196,3 @@
       });
 
       // Remove active class from all tabs
-      var tabs = document.querySelectorAll('.tab');
-      tabs.forEach(function(tab) {
-        tab.classList.remove('active');
-      });
-
-      // Show selected tab content
-      document.getElementById(tabId).classList.add('active');
-
-      // Highlight selected tab
-      element.classList.add('active');
-    }
-
-    // Accordion toggle
-    var acc = document.getElementsByClassName("accordion");
-    for (var i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-        } else {
-          panel.style.display = "block";
-        }
-      });
-    }
-  </script>
-<script>
-  // Accordion function
-  var accordions = document.getElementsByClassName("accordion");
-  for (var i = 0; i < accordions.length; i++) {
-    accordions[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
-      }
-    });
-  }
-</script>
-          
-</body>
-</html>
-
-
-
