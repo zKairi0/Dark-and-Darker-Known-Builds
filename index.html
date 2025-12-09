@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>The Dark and Darker Grimoire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
@@ -44,13 +45,14 @@
       text-align: center;
     }
 
-    /* Tabs container */
+    /* Tabs */
     .tabs {
       display: flex;
       border-bottom: 2px solid #444;
       margin-bottom: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 6px;
     }
 
     .tab {
@@ -60,15 +62,30 @@
       color: #f0e6d2;
       border: 1px solid #444;
       border-bottom: none;
-      margin-right: 5px;
       font-family: "Cinzel", serif;
-      transition: 0.3s;
+      transition: 0.2s ease;
+      user-select: none;
     }
+
+    .tab:hover { filter: brightness(1.1); }
 
     .tab.active {
       background-color: #0d0d0d;
       font-weight: bold;
+      box-shadow: inset 0 -2px 0 #0d0d0d;
     }
+
+    /* Accent colors per class (active + hover glow) */
+    .tab.fighter.active, .tab.fighter:hover { color: #C0C0C0; text-shadow: 0 0 8px #C0C0C0; }
+    .tab.wizard.active, .tab.wizard:hover { color: #3399ff; text-shadow: 0 0 8px #3399ff; }
+    .tab.rogue.active, .tab.rogue:hover { color: #bbbbbb; text-shadow: 0 0 8px #888888; }
+    .tab.sorceror.active, .tab.sorceror:hover { color: #9933ff; text-shadow: 0 0 8px #9933ff; }
+    .tab.warlock.active, .tab.warlock:hover { color: #4B0082; text-shadow: 0 0 8px #4B0082; }
+    .tab.druid.active, .tab.druid:hover { color: #228b22; text-shadow: 0 0 8px #228b22; }
+    .tab.barbarian.active, .tab.barbarian:hover { color: #b22222; text-shadow: 0 0 8px #b22222; }
+    .tab.bard.active, .tab.bard:hover { color: #ff69b4; text-shadow: 0 0 8px #ff69b4; }
+    .tab.cleric.active, .tab.cleric:hover { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
+    .tab.ranger.active, .tab.ranger:hover { color: #2e8b57; text-shadow: 0 0 8px #2e8b57; }
 
     /* Tab content */
     .tab-content {
@@ -79,24 +96,9 @@
       color: #c9b37e;
       font-family: Georgia, serif;
     }
+    .tab-content.active { display: block; }
 
-    .tab-content.active {
-      display: block;
-    }
-
-    /* Accent colors per class (active + hover glow) */
-    .tab.fighter.active, .tab.fighter:hover { color: #C0C0C0; text-shadow: 0 0 8px #C0C0C0; }
-    .tab.wizard.active, .tab.wizard:hover { color: #3399ff; text-shadow: 0 0 8px #3399ff; }
-    .tab.rogue.active, .tab.rogue:hover { color: #555555; text-shadow: 0 0 8px #555555; }
-    .tab.sorceror.active, .tab.sorceror:hover { color: #9933ff; text-shadow: 0 0 8px #9933ff; }
-    .tab.warlock.active, .tab.warlock:hover { color: #4B0082; text-shadow: 0 0 8px #4B0082; }
-    .tab.druid.active, .tab.druid:hover { color: #228b22; text-shadow: 0 0 8px #228b22; }
-    .tab.barbarian.active, .tab.barbarian:hover { color: #b22222; text-shadow: 0 0 8px #b22222; }
-    .tab.bard.active, .tab.bard:hover { color: #ff69b4; text-shadow: 0 0 8px #ff69b4; }
-    .tab.cleric.active, .tab.cleric:hover { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
-    .tab.ranger.active, .tab.ranger:hover { color: #2e8b57; text-shadow: 0 0 8px #2e8b57; }
-
-    /* Accordion styling */
+    /* Accordion */
     .accordion {
       background-color: #1a1a1a;
       color: #d4af37;
@@ -104,95 +106,125 @@
       padding: 12px;
       width: 100%;
       text-align: left;
-      border: none;
+      border: 1px solid #444;
       outline: none;
       font-family: "Cinzel", serif;
-      font-size: 1.2em;
-      transition: background-color 0.3s;
+      font-size: 1.1em;
+      transition: background-color 0.2s ease;
       margin-top: 10px;
+      user-select: none;
     }
 
-    .accordion:hover {
-      background-color: #2b2b2b;
-      text-shadow: 0 0 8px #d4af37;
-    }
+    .accordion:hover { background-color: #2b2b2b; }
 
     .panel {
       padding: 0 18px;
       display: none;
       overflow: hidden;
       border-left: 2px solid #444;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      background: #0f0f0f;
     }
 
     img {
       border: 2px solid #444;
       padding: 4px;
       background-color: #0d0d0d;
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
-
   <div class="title-banner">
     <h1>The Dark and Darker Grimoire</h1>
     <p class="subtitle">
-      Here rests the Grimoire, a testament to those who endured the endless dark and lived to recount it.  
+      Here rests the Grimoire, a testament to those who endured the endless dark and lived to recount it.
       Beyond the beasts and shadows, these pages preserve the legends unearthed within the dungeons — detailing the arms, armor, and skills witnessed in the hands of survivors and champions alike.
     </p>
   </div>
 
   <div class="tabs">
-    <div class="tab fighter active" onclick="showTab('fighter', this)">Fighter</div>
-    <div class="tab wizard" onclick="showTab('wizard', this)">Wizard</div>
-    <div class="tab rogue" onclick="showTab('rogue', this)">Rogue</div>
-    <div class="tab sorceror" onclick="showTab('sorceror', this)">Sorceror</div>
-    <div class="tab warlock" onclick="showTab('warlock', this)">Warlock</div>
-    <div class="tab druid" onclick="showTab('druid', this)">Druid</div>
-    <div class="tab barbarian" onclick="showTab('barbarian', this)">Barbarian</div>
-    <div class="tab bard" onclick="showTab('bard', this)">Bard</div>
-    <div class="tab cleric" onclick="showTab('cleric', this)">Cleric</div>
-    <div class="tab ranger" onclick="showTab('ranger', this)">Ranger</div>
+    <div class="tab fighter active" data-target="fighter">Fighter</div>
+    <div class="tab wizard" data-target="wizard">Wizard</div>
+    <div class="tab rogue" data-target="rogue">Rogue</div>
+    <div class="tab sorceror" data-target="sorceror">Sorceror</div>
+    <div class="tab warlock" data-target="warlock">Warlock</div>
+    <div class="tab druid" data-target="druid">Druid</div>
+    <div class="tab barbarian" data-target="barbarian">Barbarian</div>
+    <div class="tab bard" data-target="bard">Bard</div>
+    <div class="tab cleric" data-target="cleric">Cleric</div>
+    <div class="tab ranger" data-target="ranger">Ranger</div>
   </div>
 
-  <!-- Fighter archetypes with accordion -->
+  <!-- Fighter -->
   <div id="fighter" class="tab-content active">
     <h2>Fighter Archetypes</h2>
-    <p>The Fighter’s path is diverse, with many archetypes seen in the depths. Click an archetype to open its record.</p>
+    <p>Click an archetype to open its record.</p>
 
     <button class="accordion">Crystal Sword Fighter</button>
     <div class="panel">
       <p>A duelist who wields the crystalline blade, striking with precision and resilience.</p>
-      <img src="URL_TO_CRYSTAL_SWORD_FIGHTER_SCREENSHOT" alt="Crystal Sword Fighter" style="width:400px;">
+      <img src="URL_TO_CRYSTAL_SWORD_FIGHTER_SCREENSHOT" alt="Crystal Sword Fighter" />
     </div>
 
     <button class="accordion">Plate Falchion & Heater Shield Fighter</button>
     <div class="panel">
       <p>A stalwart defender clad in heavy plate, balancing offense with the curved falchion and defense with the heater shield.</p>
-      <img src="URL_TO_PLATE_FALCHION_FIGHTER_SCREENSHOT" alt="Plate Falchion Fighter" style="width:400px;">
+      <img src="URL_TO_PLATE_FALCHION_FIGHTER_SCREENSHOT" alt="Plate Falchion Fighter" />
     </div>
   </div>
 
-  <!-- Other classes -->
+  <!-- Wizard -->
   <div id="wizard" class="tab-content">
     <h2>Wizard</h2>
     <p>Master of arcane knowledge, weaving spells from ancient texts.</p>
   </div>
 
+  <!-- Rogue -->
   <div id="rogue" class="tab-content">
     <h2>Rogue</h2>
     <p>Silent and cunning, striking from the shadows with precision.</p>
   </div>
 
-  <!-- Add other class contents here -->
+  <!-- Add other class content sections similarly... -->
 
   <script>
-    // Tab switching
-    function showTab(tabId, element) {
-      // Hide all tab contents
+    // Tab switching: click .tab to show its matching #id content
+    (function initTabs() {
+      var tabs = document.querySelectorAll('.tab');
       var contents = document.querySelectorAll('.tab-content');
-      contents.forEach(function(content) {
-        content.classList.remove('active');
-      });
 
-      // Remove active class from
+      function showTabById(id) {
+        contents.forEach(function(c) { c.classList.remove('active'); });
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        var targetContent = document.getElementById(id);
+        var targetTab = Array.prototype.find.call(tabs, function(t) {
+          return t.getAttribute('data-target') === id;
+        });
+        if (targetContent) targetContent.classList.add('active');
+        if (targetTab) targetTab.classList.add('active');
+      }
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var id = tab.getAttribute('data-target');
+          showTabById(id);
+        });
+      });
+    })();
+
+    // Accordion toggles inside any tab content
+    (function initAccordions() {
+      var acc = document.getElementsByClassName('accordion');
+      for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener('click', function() {
+          var panel = this.nextElementSibling;
+          if (!panel) return;
+          panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
