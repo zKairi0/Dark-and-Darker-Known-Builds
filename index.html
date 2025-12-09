@@ -72,18 +72,18 @@
     }
 
     .tab-content.active { display: block; }
-  
+
     /* Class accent colors for tabs (hover + active glow) */
-.tab.fighter.active, .tab.fighter:hover { color: #C0C0C0; text-shadow: 0 0 8px #C0C0C0; }
-.tab.wizard.active, .tab.wizard:hover   { color: #3399FF; text-shadow: 0 0 8px #3399FF; }
-.tab.rogue.active, .tab.rogue:hover     { color: #BBBBBB; text-shadow: 0 0 8px #888888; }
-.tab.sorcerer.active, .tab.sorcerer:hover { color: #9933FF; text-shadow: 0 0 8px #9933FF; }
-.tab.warlock.active, .tab.warlock:hover { color: #4B0082; text-shadow: 0 0 8px #4B0082; }
-.tab.druid.active, .tab.druid:hover     { color: #228B22; text-shadow: 0 0 8px #228B22; }
-.tab.barbarian.active, .tab.barbarian:hover { color: #B22222; text-shadow: 0 0 8px #B22222; }
-.tab.bard.active, .tab.bard:hover       { color: #FF69B4; text-shadow: 0 0 8px #FF69B4; }
-.tab.cleric.active, .tab.cleric:hover   { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
-.tab.ranger.active, .tab.ranger:hover   { color: #2E8B57; text-shadow: 0 0 8px #2E8B57; }
+    .tab.fighter.active, .tab.fighter:hover     { color: #C0C0C0; text-shadow: 0 0 8px #C0C0C0; }
+    .tab.wizard.active, .tab.wizard:hover       { color: #3399FF; text-shadow: 0 0 8px #3399FF; }
+    .tab.rogue.active, .tab.rogue:hover         { color: #BBBBBB; text-shadow: 0 0 8px #888888; }
+    .tab.sorcerer.active, .tab.sorcerer:hover   { color: #9933FF; text-shadow: 0 0 8px #9933FF; }
+    .tab.warlock.active, .tab.warlock:hover     { color: #4B0082; text-shadow: 0 0 8px #4B0082; }
+    .tab.druid.active, .tab.druid:hover         { color: #228B22; text-shadow: 0 0 8px #228B22; }
+    .tab.barbarian.active, .tab.barbarian:hover { color: #B22222; text-shadow: 0 0 8px #B22222; }
+    .tab.bard.active, .tab.bard:hover           { color: #FF69B4; text-shadow: 0 0 8px #FF69B4; }
+    .tab.cleric.active, .tab.cleric:hover       { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
+    .tab.ranger.active, .tab.ranger:hover       { color: #2E8B57; text-shadow: 0 0 8px #2E8B57; }
   </style>
 </head>
 <body>
@@ -93,16 +93,16 @@
   </div>
 
   <div class="tabs">
-    <div class="tab active" data-target="fighter">Fighter</div>
-    <div class="tab" data-target="wizard">Wizard</div>
-    <div class="tab" data-target="rogue">Rogue</div>
-    <div class="tab" data-target="sorcerer">Sorcerer</div>
-    <div class="tab" data-target="warlock">Warlock</div>
-    <div class="tab" data-target="druid">Druid</div>
-    <div class="tab" data-target="barbarian">Barbarian</div>
-    <div class="tab" data-target="bard">Bard</div>
-    <div class="tab" data-target="cleric">Cleric</div>
-    <div class="tab" data-target="ranger">Ranger</div>
+    <div class="tab fighter active" data-target="fighter">Fighter</div>
+    <div class="tab wizard" data-target="wizard">Wizard</div>
+    <div class="tab rogue" data-target="rogue">Rogue</div>
+    <div class="tab sorcerer" data-target="sorcerer">Sorcerer</div>
+    <div class="tab warlock" data-target="warlock">Warlock</div>
+    <div class="tab druid" data-target="druid">Druid</div>
+    <div class="tab barbarian" data-target="barbarian">Barbarian</div>
+    <div class="tab bard" data-target="bard">Bard</div>
+    <div class="tab cleric" data-target="cleric">Cleric</div>
+    <div class="tab ranger" data-target="ranger">Ranger</div>
   </div>
 
   <div id="fighter" class="tab-content active">
@@ -156,22 +156,26 @@
   </div>
 
   <script>
-    // Tab switching logic (click a tab to show its content)
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
+    // Ensure script runs after DOM is ready
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        const targetId = tab.getAttribute('data-target');
-        const targetContent = document.getElementById(targetId);
-        if (targetContent) targetContent.classList.add('active');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // remove active from all
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+
+          // add active to clicked tab and its content
+          tab.classList.add('active');
+          const targetId = tab.getAttribute('data-target');
+          const targetContent = document.getElementById(targetId);
+          if (targetContent) targetContent.classList.add('active');
+        });
       });
     });
   </script>
 
 </body>
 </html>
-
