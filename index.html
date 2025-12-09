@@ -179,4 +179,43 @@
       <ul>
         <li><strong>Primary Weapon:</strong> Plate Falchion<br><img src="URL_TO_FALCHION_IMAGE" style="width:150px;"></li>
         <li><strong>Secondary Weapon:</strong
+  <script>
+    // Tab switching
+    function showTab(tabId, element) {
+      // Hide all tab contents
+      var contents = document.querySelectorAll('.tab-content');
+      contents.forEach(function(content) {
+        content.classList.remove('active');
+      });
+
+      // Remove active class from all tabs
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+
+      // Show selected tab content
+      document.getElementById(tabId).classList.add('active');
+
+      // Highlight selected tab
+      element.classList.add('active');
+    }
+
+    // Accordion toggle
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
 
