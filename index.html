@@ -6,7 +6,7 @@
 
   <style>
     body {
-      background: linear-gradient(135deg, #1a1a1a, #0d0d0d); /* subtle grey top-left to dark bottom-right */
+      background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
       color: #c9b37e;
       font-family: "Cinzel", serif;
       line-height: 1.6;
@@ -70,29 +70,17 @@
       display: block;
     }
 
-    /* Accent colors per class */
-    .tab.fighter.active { color: #C0C0C0; }
-    .tab.wizard.active { color: #3399ff; }
-    .tab.rogue.active { color: #555555; }
-    .tab.sorceror.active { color: #9933ff; }
-    .tab.warlock.active { color: #4B0082; }
-    .tab.druid.active { color: #228b22; }
-    .tab.barbarian.active { color: #b22222; }
-    .tab.bard.active { color: #ff69b4; }
-    .tab.cleric.active { color: #FFD700; }
-    .tab.ranger.active { color: #2e8b57; }
-
-    /* Glow on hover with respective colors */
-    .tab.fighter:hover { text-shadow: 0 0 8px #C0C0C0; }
-    .tab.wizard:hover { text-shadow: 0 0 8px #3399ff; }
-    .tab.rogue:hover { text-shadow: 0 0 8px #555555; }
-    .tab.sorceror:hover { text-shadow: 0 0 8px #9933ff; }
-    .tab.warlock:hover { text-shadow: 0 0 8px #4B0082; }
-    .tab.druid:hover { text-shadow: 0 0 8px #228b22; }
-    .tab.barbarian:hover { text-shadow: 0 0 8px #b22222; }
-    .tab.bard:hover { text-shadow: 0 0 8px #ff69b4; }
-    .tab.cleric:hover { text-shadow: 0 0 8px #FFD700; }
-    .tab.ranger:hover { text-shadow: 0 0 8px #2e8b57; }
+    /* Accent colors per class (active + hover glow) */
+    .tab.fighter.active, .tab.fighter:hover { color: #C0C0C0; text-shadow: 0 0 8px #C0C0C0; }
+    .tab.wizard.active, .tab.wizard:hover { color: #3399ff; text-shadow: 0 0 8px #3399ff; }
+    .tab.rogue.active, .tab.rogue:hover { color: #555555; text-shadow: 0 0 8px #555555; }
+    .tab.sorceror.active, .tab.sorceror:hover { color: #9933ff; text-shadow: 0 0 8px #9933ff; }
+    .tab.warlock.active, .tab.warlock:hover { color: #4B0082; text-shadow: 0 0 8px #4B0082; }
+    .tab.druid.active, .tab.druid:hover { color: #228b22; text-shadow: 0 0 8px #228b22; }
+    .tab.barbarian.active, .tab.barbarian:hover { color: #b22222; text-shadow: 0 0 8px #b22222; }
+    .tab.bard.active, .tab.bard:hover { color: #ff69b4; text-shadow: 0 0 8px #ff69b4; }
+    .tab.cleric.active, .tab.cleric:hover { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
+    .tab.ranger.active, .tab.ranger:hover { color: #2e8b57; text-shadow: 0 0 8px #2e8b57; }
 
     /* Accordion styling */
     .accordion {
@@ -186,5 +174,4 @@
   </div>
 
   <div id="rogue" class="tab-content">
-    <h2>Rogue</h2>
-   
+    <h2
