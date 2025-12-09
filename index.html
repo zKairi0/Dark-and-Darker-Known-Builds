@@ -16,7 +16,7 @@
 
     h1 {
       font-size: 2.5em;
-      color: #d4af37; /* gold tone */
+      color: #d4af37;
       text-shadow: 2px 2px 6px #000000;
       margin-bottom: 10px;
       font-family: 'Cinzel Decorative', serif;
@@ -24,7 +24,7 @@
 
     .subtitle {
       font-size: 1.5em;
-      color: #f0e6d2; /* parchment tone */
+      color: #f0e6d2;
       font-style: italic;
       text-shadow: 1px 1px 4px #000000;
       margin-top: 10px;
@@ -94,15 +94,33 @@
     .tab.cleric:hover { text-shadow: 0 0 8px #FFD700; }
     .tab.ranger:hover { text-shadow: 0 0 8px #2e8b57; }
 
-    /* Archetype styling */
-    .archetype {
-      margin-bottom: 40px;
-      border-top: 1px solid #444;
-      padding-top: 20px;
-    }
-    .archetype h3 {
+    /* Accordion styling */
+    .accordion {
+      background-color: #1a1a1a;
       color: #d4af37;
-      text-shadow: 1px 1px 4px #000;
+      cursor: pointer;
+      padding: 12px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-family: "Cinzel", serif;
+      font-size: 1.2em;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    .accordion:hover {
+      background-color: #2b2b2b;
+      text-shadow: 0 0 8px #d4af37;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      border-left: 2px solid #444;
+      margin-bottom: 20px;
     }
 
     img {
@@ -133,14 +151,13 @@
     <div class="tab ranger" onclick="showTab('ranger', this)">Ranger</div>
   </div>
 
-  <!-- Fighter archetypes -->
+  <!-- Fighter archetypes with accordion -->
   <div id="fighter" class="tab-content active">
     <h2>Fighter Archetypes</h2>
-    <p>The Fighter’s path is diverse, with many archetypes seen in the depths. Each record below captures a different style of arms and armor.</p>
+    <p>The Fighter’s path is diverse, with many archetypes seen in the depths. Click an archetype to open its record.</p>
 
-    <!-- Archetype 1 -->
-    <section class="archetype">
-      <h3>Crystal Sword Fighter</h3>
+    <button class="accordion">Crystal Sword Fighter</button>
+    <div class="panel">
       <p>A duelist who wields the crystalline blade, striking with precision and resilience.</p>
       <img src="URL_TO_CRYSTAL_SWORD_FIGHTER_SCREENSHOT" alt="Crystal Sword Fighter" style="width:400px;">
       <ul>
@@ -148,11 +165,10 @@
         <li><strong>Secondary Weapon:</strong> Shield<br><img src="URL_TO_SHIELD_IMAGE" style="width:150px;"></li>
         <li><strong>Armor:</strong> Plate Set<br><img src="URL_TO_PLATE_ARMOR_IMAGE" style="width:150px;"></li>
       </ul>
-    </section>
+    </div>
 
-    <!-- Archetype 2 -->
-    <section class="archetype">
-      <h3>Plate Falchion & Heater Shield Fighter</h3>
+    <button class="accordion">Plate Falchion & Heater Shield Fighter</button>
+    <div class="panel">
       <p>A stalwart defender clad in heavy plate, balancing offense with the curved falchion and defense with the heater shield.</p>
       <img src="URL_TO_PLATE_FALCHION_FIGHTER_SCREENSHOT" alt="Plate Falchion Fighter" style="width:400px;">
       <ul>
@@ -160,7 +176,7 @@
         <li><strong>Secondary Weapon:</strong> Heater Shield<br><img src="URL_TO_HEATER_SHIELD_IMAGE" style="width:150px;"></li>
         <li><strong>Armor:</strong> Full Plate<br><img src="URL_TO_FULL_PLATE_IMAGE" style="width:150px;"></li>
       </ul>
-    </section>
+    </div>
   </div>
 
   <!-- Other classes -->
@@ -171,12 +187,4 @@
 
   <div id="rogue" class="tab-content">
     <h2>Rogue</h2>
-    <p>Silent and cunning, striking from the shadows with precision.</p>
-  </div>
-
-  <div id="sorceror" class="tab-content">
-    <h2>Sorceror</h2>
-    <p>Born of magic, channeling raw power without need of study.</p>
-  </div>
-
-  <div
+   
