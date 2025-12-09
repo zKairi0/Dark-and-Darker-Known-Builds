@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>The Dark and Darker Grimoire</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
@@ -9,12 +9,10 @@
       background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
       color: #c9b37e;
       font-family: "Cinzel", serif;
-      line-height: 1.6;
       margin: 0;
       padding: 20px;
     }
 
-    /* Title banner */
     .title-banner {
       text-align: center;
       background: linear-gradient(to right, #2b2b2b, #0d0d0d, #2b2b2b);
@@ -35,28 +33,17 @@
       margin: 0;
     }
 
-    .subtitle {
-      font-size: 1.5em;
-      color: #f0e6d2;
-      font-style: italic;
-      text-shadow: 1px 1px 4px #000000;
-      margin-top: 10px;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
-
-    /* Tabs */
     .tabs {
       display: flex;
       border-bottom: 2px solid #444;
       margin-bottom: 20px;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 6px;
     }
 
     .tab {
-      padding: 10px 20px;
+      padding: 10px 16px;
       cursor: pointer;
       background-color: #1a1a1a;
       color: #f0e6d2;
@@ -75,19 +62,6 @@
       box-shadow: inset 0 -2px 0 #0d0d0d;
     }
 
-    /* Accent colors per class (active + hover glow) */
-    .tab.fighter.active, .tab.fighter:hover { color: #C0C0C0; text-shadow: 0 0 8px #C0C0C0; }
-    .tab.wizard.active, .tab.wizard:hover { color: #3399ff; text-shadow: 0 0 8px #3399ff; }
-    .tab.rogue.active, .tab.rogue:hover { color: #bbbbbb; text-shadow: 0 0 8px #888888; }
-    .tab.sorceror.active, .tab.sorceror:hover { color: #9933ff; text-shadow: 0 0 8px #9933ff; }
-    .tab.warlock.active, .tab.warlock:hover { color: #4B0082; text-shadow: 0 0 8px #4B0082; }
-    .tab.druid.active, .tab.druid:hover { color: #228b22; text-shadow: 0 0 8px #228b22; }
-    .tab.barbarian.active, .tab.barbarian:hover { color: #b22222; text-shadow: 0 0 8px #b22222; }
-    .tab.bard.active, .tab.bard:hover { color: #ff69b4; text-shadow: 0 0 8px #ff69b4; }
-    .tab.cleric.active, .tab.cleric:hover { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
-    .tab.ranger.active, .tab.ranger:hover { color: #2e8b57; text-shadow: 0 0 8px #2e8b57; }
-
-    /* Tab content */
     .tab-content {
       display: none;
       padding: 20px;
@@ -96,135 +70,95 @@
       color: #c9b37e;
       font-family: Georgia, serif;
     }
+
     .tab-content.active { display: block; }
-
-    /* Accordion */
-    .accordion {
-      background-color: #1a1a1a;
-      color: #d4af37;
-      cursor: pointer;
-      padding: 12px;
-      width: 100%;
-      text-align: left;
-      border: 1px solid #444;
-      outline: none;
-      font-family: "Cinzel", serif;
-      font-size: 1.1em;
-      transition: background-color 0.2s ease;
-      margin-top: 10px;
-      user-select: none;
-    }
-
-    .accordion:hover { background-color: #2b2b2b; }
-
-    .panel {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      border-left: 2px solid #444;
-      margin-bottom: 16px;
-      background: #0f0f0f;
-    }
-
-    img {
-      border: 2px solid #444;
-      padding: 4px;
-      background-color: #0d0d0d;
-      max-width: 100%;
-      height: auto;
-    }
   </style>
 </head>
 <body>
+
   <div class="title-banner">
     <h1>The Dark and Darker Grimoire</h1>
-    <p class="subtitle">
-      Here rests the Grimoire, a testament to those who endured the endless dark and lived to recount it.
-      Beyond the beasts and shadows, these pages preserve the legends unearthed within the dungeons — detailing the arms, armor, and skills witnessed in the hands of survivors and champions alike.
-    </p>
   </div>
 
   <div class="tabs">
-    <div class="tab fighter active" data-target="fighter">Fighter</div>
-    <div class="tab wizard" data-target="wizard">Wizard</div>
-    <div class="tab rogue" data-target="rogue">Rogue</div>
-    <div class="tab sorceror" data-target="sorceror">Sorceror</div>
-    <div class="tab warlock" data-target="warlock">Warlock</div>
-    <div class="tab druid" data-target="druid">Druid</div>
-    <div class="tab barbarian" data-target="barbarian">Barbarian</div>
-    <div class="tab bard" data-target="bard">Bard</div>
-    <div class="tab cleric" data-target="cleric">Cleric</div>
-    <div class="tab ranger" data-target="ranger">Ranger</div>
+    <div class="tab active" data-target="fighter">Fighter</div>
+    <div class="tab" data-target="wizard">Wizard</div>
+    <div class="tab" data-target="rogue">Rogue</div>
+    <div class="tab" data-target="sorcerer">Sorcerer</div>
+    <div class="tab" data-target="warlock">Warlock</div>
+    <div class="tab" data-target="druid">Druid</div>
+    <div class="tab" data-target="barbarian">Barbarian</div>
+    <div class="tab" data-target="bard">Bard</div>
+    <div class="tab" data-target="cleric">Cleric</div>
+    <div class="tab" data-target="ranger">Ranger</div>
   </div>
 
-  <!-- Fighter -->
   <div id="fighter" class="tab-content active">
-    <h2>Fighter Archetypes</h2>
-    <p>Click an archetype to open its record.</p>
-
-    <button class="accordion">Crystal Sword Fighter</button>
-    <div class="panel">
-      <p>A duelist who wields the crystalline blade, striking with precision and resilience.</p>
-      <img src="URL_TO_CRYSTAL_SWORD_FIGHTER_SCREENSHOT" alt="Crystal Sword Fighter" />
-    </div>
-
-    <button class="accordion">Plate Falchion & Heater Shield Fighter</button>
-    <div class="panel">
-      <p>A stalwart defender clad in heavy plate, balancing offense with the curved falchion and defense with the heater shield.</p>
-      <img src="URL_TO_PLATE_FALCHION_FIGHTER_SCREENSHOT" alt="Plate Falchion Fighter" />
-    </div>
+    <h2>Fighter</h2>
+    <p>A stalwart warrior, clad in steel and resolve.</p>
   </div>
 
-  <!-- Wizard -->
   <div id="wizard" class="tab-content">
     <h2>Wizard</h2>
-    <p>Master of arcane knowledge, weaving spells from ancient texts.</p>
+    <p>Master of arcane lore, weaving spells from ancient texts.</p>
   </div>
 
-  <!-- Rogue -->
   <div id="rogue" class="tab-content">
     <h2>Rogue</h2>
-    <p>Silent and cunning, striking from the shadows with precision.</p>
+    <p>Silent and cunning, striking from the shadows.</p>
   </div>
 
-  <!-- Add other class content sections similarly... -->
+  <div id="sorcerer" class="tab-content">
+    <h2>Sorcerer</h2>
+    <p>Innate magic surges through their veins, raw and potent.</p>
+  </div>
+
+  <div id="warlock" class="tab-content">
+    <h2>Warlock</h2>
+    <p>Pacts and whispers grant forbidden power.</p>
+  </div>
+
+  <div id="druid" class="tab-content">
+    <h2>Druid</h2>
+    <p>Nature’s guardian, attuned to wild forms and primal rites.</p>
+  </div>
+
+  <div id="barbarian" class="tab-content">
+    <h2>Barbarian</h2>
+    <p>Ferocity embodied, enduring and relentless.</p>
+  </div>
+
+  <div id="bard" class="tab-content">
+    <h2>Bard</h2>
+    <p>Poetry and melody woven into battlecraft.</p>
+  </div>
+
+  <div id="cleric" class="tab-content">
+    <h2>Cleric</h2>
+    <p>Divine light heals allies and punishes the wicked.</p>
+  </div>
+
+  <div id="ranger" class="tab-content">
+    <h2>Ranger</h2>
+    <p>Patient hunter, keen-eyed and sure-footed.</p>
+  </div>
 
   <script>
-    // Tab switching: click .tab to show its matching #id content
-    (function initTabs() {
-      var tabs = document.querySelectorAll('.tab');
-      var contents = document.querySelectorAll('.tab-content');
+    // Tab switching logic (click a tab to show its content)
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
 
-      function showTabById(id) {
-        contents.forEach(function(c) { c.classList.remove('active'); });
-        tabs.forEach(function(t) { t.classList.remove('active'); });
-        var targetContent = document.getElementById(id);
-        var targetTab = Array.prototype.find.call(tabs, function(t) {
-          return t.getAttribute('data-target') === id;
-        });
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        const targetId = tab.getAttribute('data-target');
+        const targetContent = document.getElementById(targetId);
         if (targetContent) targetContent.classList.add('active');
-        if (targetTab) targetTab.classList.add('active');
-      }
-
-      tabs.forEach(function(tab) {
-        tab.addEventListener('click', function() {
-          var id = tab.getAttribute('data-target');
-          showTabById(id);
-        });
       });
-    })();
-
-    // Accordion toggles inside any tab content
-    (function initAccordions() {
-      var acc = document.getElementsByClassName('accordion');
-      for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener('click', function() {
-          var panel = this.nextElementSibling;
-          if (!panel) return;
-          panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
-        });
-      }
-    })();
+    });
   </script>
+
 </body>
 </html>
