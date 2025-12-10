@@ -84,6 +84,35 @@
     .tab.bard.active, .tab.bard:hover           { color: #FF69B4; text-shadow: 0 0 8px #FF69B4; }
     .tab.cleric.active, .tab.cleric:hover       { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
     .tab.ranger.active, .tab.ranger:hover       { color: #2E8B57; text-shadow: 0 0 8px #2E8B57; }
+
+    /* Accordion styles */
+    .accordion {
+      background-color: #1a1a1a;
+      color: #d4af37;
+      cursor: pointer;
+      padding: 12px;
+      width: 100%;
+      text-align: left;
+      border: 1px solid #444;
+      outline: none;
+      font-family: "Cinzel", serif;
+      font-size: 1.1em;
+      transition: background-color 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .accordion:hover {
+      background-color: #2b2b2b;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      border-left: 2px solid #444;
+      margin-bottom: 16px;
+      background: #0f0f0f;
+    }
   </style>
 </head>
 <body>
@@ -105,20 +134,20 @@
     <div class="tab ranger" data-target="ranger">Ranger</div>
   </div>
 
- <div id="fighter" class="tab-content active">
-  <h2>Fighter Archetypes</h2>
-  <p>Click an archetype below to open its record.</p>
+  <div id="fighter" class="tab-content active">
+    <h2>Fighter Archetypes</h2>
+    <p>Click an archetype below to open its record.</p>
 
-  <button class="accordion">Crystal Sword Knight</button>
-  <div class="panel">
-    <p>A duelist who wields the crystalline blade, striking with precision and resilience.</p>
-  </div>
+    <button class="accordion">Crystal Sword Knight</button>
+    <div class="panel">
+      <p>A duelist who wields the crystalline blade, striking with precision and resilience.</p>
+    </div>
 
-  <button class="accordion">Falchion and Heater Shield Knight</button>
-  <div class="panel">
-    <p>A stalwart defender clad in heavy plate, balancing offense with the curved falchion and defense with the heater shield.</p>
+    <button class="accordion">Falchion and Heater Shield Knight</button>
+    <div class="panel">
+      <p>A stalwart defender clad in heavy plate, balancing offense with the curved falchion and defense with the heater shield.</p>
+    </div>
   </div>
-</div> 
 
   <div id="wizard" class="tab-content">
     <h2>Wizard</h2>
@@ -165,42 +194,15 @@
     <p>Patient hunter, keen-eyed and sure-footed.</p>
   </div>
 
-  .accordion {
-  background-color: #1a1a1a;
-  color: #d4af37;
-  cursor: pointer;
-  padding: 12px;
-  width: 100%;
-  text-align: left;
-  border: 1px solid #444;
-  outline: none;
-  font-family: "Cinzel", serif;
-  font-size: 1.1em;
-  transition: background-color 0.2s ease;
-  margin-top: 10px;
-}
-
-.accordion:hover {
-  background-color: #2b2b2b;
-}
-
-.panel {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  border-left: 2px solid #444;
-  margin-bottom: 16px;
-  background: #0f0f0f;
-}
-  <script>
-    // Ensure script runs after DOM is ready
+   <script>
+    // Tab switching
     document.addEventListener("DOMContentLoaded", () => {
       const tabs = document.querySelectorAll('.tab');
       const contents = document.querySelectorAll('.tab-content');
 
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          // remove active from all
+          // remove active from all tabs and contents
           tabs.forEach(t => t.classList.remove('active'));
           contents.forEach(c => c.classList.remove('active'));
 
@@ -208,25 +210,26 @@
           tab.classList.add('active');
           const targetId = tab.getAttribute('data-target');
           const targetContent = document.getElementById(targetId);
-          if (targetContent) targetContent.classList.add('active');
+          if (targetContent) {
+            targetContent.classList.add('active');
+          }
         });
       });
     });
 
     // Accordion toggles
-const accordions = document.querySelectorAll('.accordion');
-accordions.forEach(acc => {
-  acc.addEventListener('click', () => {
-    const panel = acc.nextElementSibling;
-    if (panel.style.display === 'block') {
-      panel.style.display = 'none';
-    } else {
-      panel.style.display = 'block';
-    }
-  });
-});
+    const accordions = document.querySelectorAll('.accordion');
+    accordions.forEach(acc => {
+      acc.addEventListener('click', () => {
+        const panel = acc.nextElementSibling;
+        if (panel.style.display === 'block') {
+          panel.style.display = 'none';
+        } else {
+          panel.style.display = 'block';
+        }
+      });
+    });
   </script>
 
 </body>
 </html>
-
