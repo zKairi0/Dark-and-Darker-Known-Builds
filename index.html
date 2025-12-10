@@ -132,26 +132,30 @@
       box-shadow: 0 0 6px #000;
     }
 
-    /* Damage glow only on hover for archetype titles */
-    .accordion.damage-physical:hover {
-      color: #C0C0C0;
-      text-shadow: 0 0 6px #C0C0C0;
-    }
+    /* Softer damage glow with fade-in for archetype titles */
+.accordion {
+  transition: color 0.3s ease, text-shadow 0.3s ease, background-color 0.2s ease;
+}
 
-    .accordion.damage-magic:hover {
-      color: #3399FF;
-      text-shadow: 0 0 6px #3399FF;
-    }
+.accordion.damage-physical:hover {
+  color: #C0C0C0;
+  text-shadow: 0 0 2px #C0C0C0, 0 0 4px rgba(192,192,192,0.5);
+}
 
-    .accordion.damage-true-physical:hover {
-      color: #B22222;
-      text-shadow: 0 0 6px #B22222;
-    }
+.accordion.damage-magic:hover {
+  color: #3399FF;
+  text-shadow: 0 0 2px #3399FF, 0 0 4px rgba(51,153,255,0.5);
+}
 
-    .accordion.damage-true-magic:hover {
-      color: #FFD700;
-      text-shadow: 0 0 6px #FFD700;
-    }
+.accordion.damage-true-physical:hover {
+  color: #B22222;
+  text-shadow: 0 0 2px #B22222, 0 0 4px rgba(178,34,34,0.5);
+}
+
+.accordion.damage-true-magic:hover {
+  color: #FFD700;
+  text-shadow: 0 0 2px #FFD700, 0 0 4px rgba(255,215,0,0.5);
+}
   </style>
 </head>
 
@@ -286,6 +290,7 @@
 
 </body>
 </html>
+
 
 
 
